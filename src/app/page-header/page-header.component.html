@@ -1,0 +1,49 @@
+<!-- Dropdown Structure -->
+<nav class="white" role="navigation">
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+  <nav>
+    <div class="nav-wrapper">
+      <img
+        [src]="logoImg"
+        height="100%"
+        width="10%"
+        style="margin-left: 20px; margin-top: 10px"
+      />
+      <a href="#" class="brand-logo">
+        <!-- <b> L’Oréal Paris</b> -->
+      </a>
+
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a href="#"
+            ><i class="material-icons" style="color:#edd073">search</i></a
+          >
+        </li>
+        <li><a href="index.html" style="color:#edd073">Login</a></li>
+        <li><a href="index.html" style="color:#edd073">Orders</a></li>
+        <!-- Dropdown Trigger -->
+        <li>
+          <a
+            class="dropdown-trigger"
+            href="#!"
+            data-target="dropdown1"
+            style="color:#edd073"
+            >Category<i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><i class="material-icons" style="color:#edd073"
+              >shopping_cart</i
+            ></a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</nav>

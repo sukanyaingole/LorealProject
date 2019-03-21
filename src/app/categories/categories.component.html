@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12 center">
+        <h3><i class="mdi-content-send brown-text"></i></h3>
+        <h4 style="color:#edd073">----Whats New----</h4>
+        <img [src]="image1" />
+        <p class="left-align light"></p>
+        <div class="row">
+          <div class="col s12 m4" *ngFor="let cats of categories">
+            <div class="card">
+              <div class="card-image">
+                <img [src]="cats.catImage" height="75%" width="75%" />
+              </div>
+
+              <div
+                class="card-action"
+                style="background-color: #44194c; text-align: center"
+              >
+                <a
+                  class="dropdown-trigger btn"
+                  href="#"
+                  data-target="dropdown1"
+                  style="background-color: #1f0d29"
+                >
+                  <strong>{{ cats.catName }}</strong></a
+                >
+
+                <ul
+                  id="dropdown1"
+                  class="dropdown-content"
+                  style="background-color: #dda6ed; text-align: center"
+                >
+                  <li
+                    *ngFor="let elements of cats.productList"
+                    style="text-align: center"
+                  >
+                    <strong>{{ elements }}</strong>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

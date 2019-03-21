@@ -1,0 +1,77 @@
+<h2>We have total {{ totalMobileParts() }} Products in our cart</h2>
+<ul>
+  <li *ngFor="let mobPart of mobParts">
+    <div
+      [ngStyle]="{
+        display: mobPart.isOnline === true ? 'inline-block' : 'none'
+      }"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Green_sphere.svg"
+        width="16"
+      />
+    </div>
+
+    <p>
+      Mobile Part ID:<span [ngStyle]="{ 'text-shadow': '0 0 1px red' }">{{
+        mobPart.id
+      }}</span>
+    </p>
+
+    <p [ngStyle]="{ 'font-size.px': 20 }">
+      Mobile Part Name:<b
+        ><i>{{ mobPart.name }}</i></b
+      >
+    </p>
+
+    <p [ngClass]="{ 'text-box': true }">
+      Description:<q>{{ mobPart.description }}</q>
+    </p>
+
+    <p [style.color]="mobPart.stl">
+      Price : {{ mobPart.price | currency: "INR" }}
+    </p>
+
+    <!-- <div *ngIf="mobPart.inStock > 0; Else OutOfStock" > Last <mark>{{mobPart.inStock}}</mark> Parts Available in stock now </div>-->
+
+    <ng-container
+      *ngIf="mobPart.inStock > 0; then StockValue; else OutOfStock"
+    ></ng-container>
+
+    <ng-template #StockValue>
+      <div>
+        Last <mark>{{ mobPart.inStock }}</mark> Parts Available in Stock Now
+      </div>
+    </ng-template>
+
+    <ng-template #OutOfStock>
+      <div>** Parts Out Of Stock! **</div>
+    </ng-template>
+    <!-- 
+    <span [ngSwitch]="mobPart.country">
+      Country:
+      <img
+        *ngSwitchCase="'Australia'"
+        src="https://upload.wikimedia.org/wikipedia/en/b/b9/Flag_of_Australia.svg"
+        width="24"
+      />
+      <img
+        *ngSwitchCase="'India'"
+        src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg"
+        width="24"
+      />
+      <img
+        *ngSwitchCase="'Germany'"
+        src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg"
+        width="24"
+      />
+
+      <img
+        *ngSwitchDefault
+        src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
+        width="24"
+      />
+    </span>
+     -->
+  </li>
+</ul>
